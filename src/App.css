@@ -1,38 +1,51 @@
-.App {
-  text-align: center;
+@font-face {
+  font-family: 'Volkhov';
+  src: url(Volkhov-Regular.woff2);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  /* margin: 0; */
   }
+
+
+@font-face {
+  font-family: 'Cat';
+  src: url(CAT\ Hohenzollern.ttf);
+}
+* {margin: 0;padding: 0;order: 0;color: #000;font-family: 'Volkhov'}
+
+h1,h2,h3,a {
+  font-family: 'Cat';
+  width: fit-content;
+  margin: 0 auto;
+  font-weight: 600;
+  text-decoration: normal;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.backgroundzin {
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
-.App-link {
-  color: #61dafb;
+body {
+  background-color: #FAFAFA;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.blocotexto h1 {
+  margin: 0px;
+  margin-left: 24px;
+  font-family: 'Volkhov';
+  font-weight: 400;
+}
+
+.blocotexto h1::after {
+  content: "";
+  display: block;
+  background-color: rgba(0, 0, 0, 0.42);
+  width: 75px;
+  height: 3.4px;
+  position: relative;
+  bottom: 8px;
+  left: 6px;
+  border-radius: 25px;
 }
