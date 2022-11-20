@@ -14,12 +14,12 @@
   src: url(CAT\ Hohenzollern.ttf);
 }
 * {margin: 0;padding: 0;order: 0;color: #000;font-family: 'Volkhov'}
-
+.Desc * {color: #fff;}
 h1,h2,h3,a {
   font-family: 'Cat';
   width: fit-content;
   margin: 0 auto;
-  font-weight: 600;
+  font-weight: normal;
   text-decoration: normal;
 }
 
