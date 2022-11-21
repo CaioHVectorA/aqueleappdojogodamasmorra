@@ -3,7 +3,8 @@ import Detail from './Detail'
 import Header from './Header'
 import data from './Back.json' 
 import MyContext from './contexts/myContext'
-import { Navigate, useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom"
+
 const Form = (props) => {
     const inputStyle = {
         border: 'none',
@@ -21,7 +22,7 @@ const Form = (props) => {
         <form style={{height: '56px'}}>
         <label form='' style={{fontWeight: 'bold',marginRight: '1vw',position: 'absolute',left: '-60px'}}>
             Nome:
-        <input style={inputStyle} id={props.tipo} value={nome} onChange={(e) => {setNome(e.target.value)}}></input>
+        <input style={inputStyle} onKeyDown={(e) => {if (e.key === 'Enter') {e.preventDefault()}}} id={props.tipo} value={nome} type='text' onChange={(e) => {setNome(e.target.value)}}></input>
         </label>
         </form>
         </div>
@@ -44,7 +45,7 @@ const FormJog = (props) => {
         <form style={{height: '56px'}}>
         <label form='' style={{fontWeight: 'bold',marginRight: '1vw',position: 'absolute',left: '-60px'}}>
             Jogador:
-        <input style={inputStyle} id={jogador} value={jogador} onChange={(e) => {setJogador(e.target.value)}}></input>
+        <input style={inputStyle} id={jogador} value={jogador} onKeyDown={(e) => {if (e.key === 'Enter') {e.preventDefault()}}} onChange={(e) => {setJogador(e.target.value)}}></input>
         </label>
         </form>
         </div>
@@ -80,7 +81,7 @@ const FormNum = (props) => {
         <form style={{height: '56px'}}>
         <label form='' style={{fontWeight: 'normal',fontSize:'20px',marginRight: '1vw',position: 'absolute',left: '-60px'}}>
             {props.tipo}
-        <input style={inputStyleNum} id='Nome' type='number' value={props.tipo === 'Dinheiro:' ? dinheiro : acertos} onChange={Formulario}></input>
+        <input style={inputStyleNum} id='Nome' type='number' onKeyDown={(e) => {if (e.key === 'Enter') {e.preventDefault()}}} value={props.tipo === 'Dinheiro:' ? dinheiro : acertos} onChange={Formulario}></input>
         </label>
 
         </form>
@@ -118,7 +119,8 @@ const Bola = (props) => {
          border: '1px solid rgba(0,0,0,0.2)',
          background: bg ? '#D9D9D9' : '#E31717',
          width: '36px',
-         height: '36px'
+         height: '36px',
+         transition: '0.25s'
     }
 
     return (
@@ -321,7 +323,7 @@ const Ficha = () => {
     <div style={{display:'grid',placeItems: 'center',paddingBottom: '160px'}}>
         <Header Nome='Ficha' />
                 {/* Quadro aqui */}
-                <div className='Quadro' style={{width: '300px',height: '300px',backgroundColor: '#d9d9d9',borderRadius: '15px',border: '1px solid rgba(0, 0, 0, 0.3)'}}></div>
+                <div className='Quadro' id='Quadro' style={{width: '300px',height: '300px',backgroundColor: '#d9d9d9',borderRadius: '15px',border: '1px solid rgba(0, 0, 0, 0.3)'}}></div>
                 {/* Não sei ao certo se caso eu adicionar um p dentro do da div como uma instrução mudaria o script,qualquer coisa eu adiciona em próximas build */}
                 
                 <div style={{width: 'calc(80% - 40px)',height: '320px',background: '#EEE',marginTop: '32px',borderRadius: '25px',boxShadow: '0px 4px 2px rgba(0, 0, 0, 0.25)',display: 'grid',justifyContent: 'center',padding: '10px 20px'}}>

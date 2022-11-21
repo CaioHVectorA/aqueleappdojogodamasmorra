@@ -1,31 +1,30 @@
-
 {
-"one": {
-"nome": null,
-"jogador": null,
-"nivel": null,
-"ata": null,
-"def": null,
-"cor": null,
-"out": null,
-"classe": null,
-"raça": null,
-"equip": null,
-"habi": null
-},
-
-"two": {
-        "nome": null,
-        "jogador": null,
-        "nivel": null,
-        "ata": null,
-        "def": null,
-        "cor": null,
-        "out": null,
-        "classe": null,
-        "raça": null,
-        "equip": null,
-        "habi": null
-        }
-}
-
+    "one": {
+    "nome": null,
+    "jogador": null,
+    "nivel": null,
+    "ata": null,
+    "def": null,
+    "cor": null,
+    "out": null,
+    "classe": null,
+    "raça": null,
+    "equip": null,
+    "habi": null
+    },
+    
+    "two": {
+            "nome": null,
+            "jogador": null,
+            "nivel": null,
+            "ata": null,
+            "def": null,
+            "cor": null,
+            "out": null,
+            "classe": null,
+            "raça": null,
+            "equip": null,
+            "habi": null
+            }
+    }
+    
