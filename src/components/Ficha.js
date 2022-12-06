@@ -81,7 +81,7 @@ const FormNum = (props) => {
         <form style={{height: '56px'}}>
         <label form='' style={{fontWeight: 'normal',fontSize:'20px',marginRight: '1vw',position: 'absolute',left: '-60px'}}>
             {props.tipo}
-        <input style={inputStyleNum} id='Nome' type='number' onKeyDown={(e) => {if (e.key === 'Enter') {e.preventDefault()}}} value={props.tipo === 'Dinheiro:' ? dinheiro : acertos} onChange={Formulario}></input>
+        <input style={inputStyleNum} id='Nome' type='number' min={0} max={props.tipo === 'Acertos:' ? props.stat : null} onKeyDown={(e) => {if (e.key === 'Enter') {e.preventDefault()}}} value={props.tipo === 'Dinheiro:' ? dinheiro : acertos} onChange={Formulario}></input>
         </label>
 
         </form>
@@ -356,6 +356,7 @@ const Ficha = () => {
         bolinha4 = true
         bolinha5 = true
     }
+    console.log(stat)
   return (
     <div style={{display:'grid',placeItems: 'center',paddingBottom: '160px'}}>
         <Header Nome='Ficha' />
@@ -368,7 +369,10 @@ const Ficha = () => {
                     <FormJog marginTop='36px'/>
                     <div style={{display: 'flex',gap: '56px',flexDirection:'column'}}>
                     <FormNum tipo='Dinheiro:' marginTop='60px'/>
-                    <FormNum tipo='Acertos:' marginTop='60px'/>
+                    <div style={{display: 'flex'}}>
+                    <FormNum tipo='Acertos:' stat={stat.cor} marginTop='60px'/>
+                    <p style={{position: 'relative',bottom: '56px',left: '112px',fontSize: '20px'}}>/{stat.cor}</p>
+                    </div>
                     </div>
                     <h2 style={{fontFamily: 'Volkhov'}}>Nível</h2>
                     <div style={{display: 'flex',gap:'24px'}}>

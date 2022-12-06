@@ -4,6 +4,7 @@ import MyContext from './contexts/myContext'
 import Header from './Header'
 import { Navigate, useNavigate } from "react-router-dom";
 import lixeira from '../delete.svg'
+import D20 from '../d20.png'
 const List = () => {
   var [tempIndex,setIndex] = React.useState(0)
 
@@ -62,9 +63,31 @@ const List = () => {
       window.location.reload(false)
       // setTempIndex(null)
   }
+  function Jogardado20() {
+    return Math.round(Math.random() * 20)
+  }
+
+
   const [aviso,setAviso] = React.useState(false)
+  const [dado,setDado] = React.useState(0)
+  const [displaydado,setdisplayDado] = React.useState(false)
+  function funcdado() {
+    setDado(Jogardado20)
+    setdisplayDado(true)
+  }
   return (
     <div style={{paddingBottom: '140px'}}>
+      {displaydado &&
+      <div style={{position: 'fixed',left: '0px',top: '0px',width: '100vw',height: '100vh',backgroundColor: 'rgba(0,0,0,0.46)'}}>
+      <div style={{position: 'fixed',top: '50%',left: '50%',transform: 'translate(-50%, -50%)',width: '80%',display:'grid',placeItems: 'center',backgroundColor: 'rgb(240,240,240)',padding: '16px 20px',borderRadius: '25px',border: '3.3px solid #d9d9d9'}}>
+       {dado >= 10 && <h2 style={{fontFamily: 'Volkhov'}}>Que sorte!</h2>}
+       {dado < 10 && <h2 style={{fontFamily: 'Volkhov'}}>Que pena!</h2>}
+       <h2 style={{fontFamily: 'Volkhov'}}>Seu dado caiu em <span style={{color:'#EE2222'}}>{dado}</span>!</h2>
+        <button onClick={funcdado} style={{backgroundColor: '#66cc23',padding: '5px 15px',borderRadius:'25px',border: 'none',fontSize: '23px',marginTop: '16px'}}>Rolar novamente</button>
+        <button onClick={() => {setdisplayDado(false)}} style={{backgroundColor: '#FF4444',padding: '5px 15px',borderRadius:'25px',border: 'none',fontSize: '23px',marginTop: '16px'}}>Fechar</button>
+        </div>
+      </div>
+      }
       {aviso &&
       <div style={{position: 'fixed',left: '0px',top: '0px',width: '100vw',height: '100vh',backgroundColor: 'rgba(0,0,0,0.46)'}}>
       <div style={{position: 'fixed',top: '50%',left: '50%',transform: 'translate(-50%, -50%)',width: '80%',display:'grid',placeItems: 'center',backgroundColor: 'rgb(240,240,240)',padding: '16px 20px',borderRadius: '25px',border: '3.3px solid #d9d9d9'}}>
@@ -85,6 +108,7 @@ const List = () => {
           <div onClick={() => {setAviso(true) ; document.body.style.overflow = 'hidden' ; setIndex(data[11])}} style={{background: '#fff',borderRadius: '50%',padding: '9px'}}><img src={lixeira} /></div>
         </div>
       </div>)}
+        <div onClick={funcdado} style={{background: '#e7e7e7',border: '3.3px solid #d9d9d9',borderRadius: '25px',padding: '8px 18px',display: 'flex',gap: '24px'}}><h1 style={{fontSize: '42px'}}>Rolar dado</h1><img src={D20} style={{width: '64px',height: '64px'}}/></div>
     </div>
     </div>
   )
