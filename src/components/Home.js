@@ -9,6 +9,7 @@ const Home = () => {
   const { setNome,setJogador,setDinheiro,setAcertos,setNivel,
     setPontos,setStat,setClasse,setRaça,setHab,setEquip } = useContext(MyContext)
     function ResetData() {
+    localStorage.setItem('App_Mode','nonedit')
       setNome('')
       setJogador('')
       setClasse('')
@@ -37,16 +38,17 @@ const Home = () => {
         placeItems: 'center'
     }
     let mt;
-    if (window.innerHeight > 700) {
+    if (window.innerHeight > 780) {
     let calc = (window.innerHeight / 100) * 2 + 76
     mt = calc.toString() + 'px'
     console.log(mt,calc)
     } else {mt = '0px'}
+    console.log(mt)
   return (
     <div style={{backgroundColor: '#F30000',width: '100vw',height: '100vh'}}>
         <Header Nome='Aquele Jogo da Masmorra & Tal'/>
         <br />
-        <div style={{width: '325px',height: '365px',backgroundColor: '#d9d9d9',margin: '0 auto',borderRadius: '25px',marginTop: mt}}></div>
+        <div style={{width: '85vw',height: '88vw',backgroundColor: '#d9d9d9',margin: '0 auto',borderRadius: '25px',marginTop: mt}}></div>
         <div style={{width: '100%',display: 'flex',position: 'absolute',bottom: '4vh'}}>
         <Link to={'Ficha'} onClick={ResetData} className='backgroundzin' style={{borderRadius: '25px',boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.75)',textDecoration: 'none'}}>
             <div style={botao}><img src={Add} style={{width: '84px'}} /></div>

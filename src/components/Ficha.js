@@ -98,7 +98,6 @@ const Bola = (props) => {
     //     width: '36px',
     //     height: '36px'
     // }
-    console.log(props.pintar == true)
     const {nivel,setNivel} = useContext(MyContext)
     const [bg,SetBg] = React.useState(!props.pintar)
     function handleClick() {
@@ -251,46 +250,85 @@ const Ficha = () => {
         stat,setStat,classe,setClasse,raça,setRaça,hab,setHab,equip,setEquip} = useContext(MyContext) 
     function handleClick() {
       var dataFull = [];  
-        dataFull.push(nome,jogador,dinheiro,pontos,acertos,nivel,stat,classe,raça,hab,equip)
-       let dataStringada = JSON.stringify(dataFull)
        if (localStorage.App_Mode != 'edit') {
+        dataFull.push(nome,jogador,dinheiro,pontos,acertos,nivel,stat,classe,raça,hab,equip)
+        dataFull[11] = getLocalStorage()
+        let dataStringada = JSON.stringify(dataFull)
        localStorage.setItem(getLocalStorage(),dataStringada)
        } else {
         if (localStorage.App_Index == 0) {
-            console.log(dataStringada,nivel)
+            dataFull.push(nome,jogador,dinheiro,pontos,acertos,nivel,stat,classe,raça,hab,equip)
+            dataFull[11] = 'app_data'
+            console.log(dataFull[11])
+            let dataStringada = JSON.stringify(dataFull)
             localStorage.setItem('app_data',dataStringada)
         }
         if (localStorage.App_Index == 1) {
+            dataFull.push(nome,jogador,dinheiro,pontos,acertos,nivel,stat,classe,raça,hab,equip)
+            dataFull[11] = 'app_data2'
+            console.log(dataFull[11])
+            let dataStringada = JSON.stringify(dataFull)
             localStorage.setItem('app_data2',dataStringada)
         }
         if (localStorage.App_Index == 2) {
+            dataFull.push(nome,jogador,dinheiro,pontos,acertos,nivel,stat,classe,raça,hab,equip)
+            dataFull[11] = 'app_data3'
+            console.log(dataFull[11])
+            let dataStringada = JSON.stringify(dataFull)
             localStorage.setItem('app_data3',dataStringada)
         }
         if (localStorage.App_Index == 3) {
+            dataFull.push(nome,jogador,dinheiro,pontos,acertos,nivel,stat,classe,raça,hab,equip)
+            dataFull[11] = 'app_data4'
+            console.log(dataFull[11])
+            let dataStringada = JSON.stringify(dataFull)
             localStorage.setItem('app_data4',dataStringada)
         }
         if (localStorage.App_Index == 4) {
+            dataFull.push(nome,jogador,dinheiro,pontos,acertos,nivel,stat,classe,raça,hab,equip)
+            dataFull[11] = 'app_data5'
+            console.log(dataFull[11])
+            let dataStringada = JSON.stringify(dataFull)
             localStorage.setItem('app_data5',dataStringada)
         }
         if (localStorage.App_Index == 5) {
+            dataFull.push(nome,jogador,dinheiro,pontos,acertos,nivel,stat,classe,raça,hab,equip)
+            dataFull[11] = 'app_data6'
+            console.log(dataFull[11])
+            let dataStringada = JSON.stringify(dataFull)
             localStorage.setItem('app_data6',dataStringada)
         }
         if (localStorage.App_Index == 6) {
+            dataFull.push(nome,jogador,dinheiro,pontos,acertos,nivel,stat,classe,raça,hab,equip)
+            dataFull[11] = 'app_data7'
+            console.log(dataFull[11])
+            let dataStringada = JSON.stringify(dataFull)
             localStorage.setItem('app_data7',dataStringada)
         }
         if (localStorage.App_Index == 7) {
+            dataFull.push(nome,jogador,dinheiro,pontos,acertos,nivel,stat,classe,raça,hab,equip)
+            dataFull[11] = 'app_data8'
+            console.log(dataFull[11])
+            let dataStringada = JSON.stringify(dataFull)
             localStorage.setItem('app_data8',dataStringada)
         }
         if (localStorage.App_Index == 8) {
+            dataFull.push(nome,jogador,dinheiro,pontos,acertos,nivel,stat,classe,raça,hab,equip)
+            dataFull[11] = 'app_data9'
+            console.log(dataFull[11])
+            let dataStringada = JSON.stringify(dataFull)
             localStorage.setItem('app_data9',dataStringada)
         }
         if (localStorage.App_Index == 9) {
+            dataFull.push(nome,jogador,dinheiro,pontos,acertos,nivel,stat,classe,raça,hab,equip)
+            dataFull[11] = 'app_data10'
+            console.log(dataFull[11])
+            let dataStringada = JSON.stringify(dataFull)
             localStorage.setItem('app_data10',dataStringada)
         }
        }
        nav(-1)
     }
-    console.log(nivel)
     let bolinha1 = false
     let bolinha2 = false
     let bolinha3 = false
@@ -301,7 +339,6 @@ const Ficha = () => {
     } else if (nivel == 2) {
         bolinha1 = true
         bolinha2 = true
-        console.log('a')
     } else if (nivel == 3) {
         bolinha1 = true
         bolinha2 = true
@@ -366,7 +403,7 @@ const Ficha = () => {
                 <TextoArea nome='Equipamentos & Itens Mágicos' info='Espada de aço,Livro da alquimia...'/>
                 </div>
                 <br />
-                <button onClick={handleClick} style={{backgroundColor: '#66cc23',padding: '5px 15px',borderRadius:'25px',border: 'none',fontSize: '32px'}}>Salvar</button>
+                <button onClick={handleClick} style={{backgroundColor: '#66cc23',padding: '5px 15px',borderRadius:'25px',border: 'none',fontSize: '32px',boxShadow: 'rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px'}}>Salvar</button>
     </div>
     // Propriedades  necessárias:ID desenho,Nome,jogador,dinheiro,acertos,nível,pts{atk,def,cor,out} stringslongas{classe,raça,hab sobrenatural,equip e itens}
     //Tudo vai ser basicamente transformado em objeto que vai ser armazenado no localStorage a partir do stringify,
